@@ -9,3 +9,11 @@ n,w=rns()
 items=[]
 for i in range(n):
     items.append(rl())
+dp=[]
+for i in range(n+1):
+    dp.append(10001*[float('inf')])
+dp[0][0]=0
+ans=0
+for i in range(1,n+1):
+    for j in range(10001):
+        
