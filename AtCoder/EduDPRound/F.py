@@ -24,12 +24,3 @@ for i in range(len(t)):
                 dp[i][j]=dp[i-1][j-1]+1
             else:
                 dp[i][j]=max(dp[i][j-1],dp[i-1][j])
-ans=""
-i=len(t)
-j=len(s)
-while True:
-    if t[i-1]==s[j-1]:
-        ans+=s[j-1]
-        i-=1
-        j-=1
-    elif
