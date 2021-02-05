@@ -9,13 +9,10 @@ n,w=rns()
 items=[]
 for i in range(n):
     items.append(rl())
-dp=[]
-for i in range(n+1):
-    dp.append((w+1)*[0])
-
-for i in range(1,n+1):
-    for j in range(w+1):
-        dp[i][j]=dp[i-1][j]
-        if j-items[i-1][0]>=0:
-            dp[i][j]=max(dp[i][j],dp[i-1][j-items[i-1][0]]+items[i-1][1])
-print(dp[-1][-1])
+dp=(w+1)*[0]
+for i in range(n):
+    weight=items[i][0]
+    val=items[i][1]
+    for j in range(w-weight,-1,-1):
+        dp[j+weight]=max(dp[j+weight],dp[j]+val)
+print(max(dp))
