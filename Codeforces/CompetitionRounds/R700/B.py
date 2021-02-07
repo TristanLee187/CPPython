@@ -19,29 +19,14 @@ for _ in range(rn()):
     a=rl()
     b=rl()
     c=[[a[i],b[i]] for i in range(n)]
-    c.sort(key=lambda x:x[0])
-    a=[c[i][0] for i in range(n)]
-    b=[c[i][1] for i in range(n)]
+    c.sort()
     ans=True
     for i in range(n):
-        B-=a[i]*ceil(b[i]/A)
+        B-=c[i][0]*ceil(c[i][1]/A)
         if B<=0:
-            if B+a[i]>=1:
+            if B+c[i][0]>=1:
                 ans=(i==n-1)
             else:
                 ans=False
             break
-    c = [[a[i], b[i]] for i in range(n)]
-    c.sort(key=lambda x: x[1])
-    a = [c[i][0] for i in range(n)]
-    b = [c[i][1] for i in range(n)]
-    pans = True
-    for i in range(n):
-        B -= a[i] * ceil(b[i] / A)
-        if B <= 0:
-            if B + a[i] >= 1:
-                pans = (i == n - 1)
-            else:
-                pans = False
-            break
-    YN(ans or pans)
+    YN(ans)
