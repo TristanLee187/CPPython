@@ -15,18 +15,21 @@ def d(a):
 
 n=rn()
 l=rl()
-a=[l[0]]
-b=[]
-ans=1
-for i in range(1,n):
-    if l[i]!=l[i-1]:
-        ans+=1
-        a.append(l[i])
+ids=[l[0]]
+acc=[0]
+for i in range(n):
+    if l[i]!=ids[-1]:
+        ids.append(l[i])
+        acc.append(1)
     else:
-        b.append(l[i])
-if len(b)>0:
-    ans+=1
-for i in range(1,len(b)):
-    if b[i]!=b[i-1]:
+        acc[-1]+=1
+ans=0
+idstack=[]
+for i in range(len(ids)):
+    if acc[i]==1:
         ans+=1
+    else:
+        if len(idstack)==0 or idstack[-1]!=ids[-1]:
+            ans+=2
+            idstack.append(ids[i])
 print(ans)
