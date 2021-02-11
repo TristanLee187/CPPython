@@ -9,9 +9,9 @@ def sieve(n):
         if ans[i]:
             res.append(i)
     return res
-from time import time
-t1=time()
-ans=(len(sieve(int(input()))))
-t2=time()
-print(ans)
-print('Time:',t2-t1)
+# from time import time
+# t1=time()
+# ans=(len(sieve(int(input()))))
+# t2=time()
+# print(ans)
+# print('Time:',t2-t1)
