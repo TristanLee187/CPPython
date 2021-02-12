@@ -23,7 +23,7 @@ for _ in range(rn()):
     while c>0:
         c=c//d
         ans+=1
-    for i in range(b,int(a**0.5)+1):
+    for i in range(b,10**3):
         if i!=1:
             tans=i-b
             c=a
