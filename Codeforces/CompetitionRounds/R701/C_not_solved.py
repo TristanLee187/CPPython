@@ -21,17 +21,11 @@ for _ in range(rn()):
         print(0)
     else:
         pair=[one+2,one+1]
+        #print(pair)
         og=one+2
         ans=one
         while pair[0]+og<=a and pair[0]%pair[1]!=0:
             one-=1
             ans+=one
             pair[0]+=og
-        pair[0]+=og
-        sub=pair[0]//og
-        add=pair[1]
-        while pair[0]>a:
-            add-=1
-            pair[0]-=sub
-        ans+=add-pair[1]
         print(ans)
