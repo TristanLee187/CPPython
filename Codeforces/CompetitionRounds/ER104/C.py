@@ -13,3 +13,15 @@ def d(a):
     return d
 
 for _ in range(rn()):
+    n=rn()
+    c=(n-1)//2
+    ans=[]
+    for i in range(1,n):
+        for j in range(i+1,n+1):
+            if j-i<n/2:
+                ans.append(1)
+            elif j-i==n/2:
+                ans.append(0)
+            else:
+                ans.append(-1)
+    print(*ans)

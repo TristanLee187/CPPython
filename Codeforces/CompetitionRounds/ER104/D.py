@@ -14,10 +14,6 @@ def d(a):
 
 for _ in range(rn()):
     n=rn()
-    a=rl()
-    ans=0
-    m=min(a)
-    for i in a:
-        if i!=m:
-            ans+=1
-    print(ans)
+    a=2*(n-1)+1
+    a=int(a**0.5)
+    print(a//2+a%2-1)
