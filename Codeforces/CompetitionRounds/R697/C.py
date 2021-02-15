@@ -18,13 +18,17 @@ for _ in range(rn()):
     a,b,k=rns()
     A=rl()
     B=rl()
-    d={}
+    boys={}
+    girls={}
     for i in range(k):
-        if A[i] in d:
-            d[A[i]].add(B[i])
-        else:
-            d[A[i]]=set()
-            d[A[i]].add(B[i])
-    c={}
-    # pairs=[[A[i],B[i]] for i in range(k)]
-    # pairs.sort()
+        if A[i] not in boys:
+            boys[A[i]]=[]
+        boys[A[i]].append(B[i])
+        if B[i] not in girls:
+            girls[B[i]]=0
+        girls[B[i]]+=1
+    ans=0
+    for i in boys:
+        for j in boys[i]:
+            ans+=k-len(boys[i])-girls[j]+1
+    print(ans//2)

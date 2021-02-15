@@ -4,7 +4,7 @@ rl=lambda:list(map(int,input().split()))
 rs=lambda:input()
 yn=lambda x:print('Yes') if x else print('No')
 YN=lambda x:print('YES') if x else print('NO')
-pl=lambda l:print(' '.join(list(map(str,l))))
+mod=lambda x:x%(10**9+7)
 def d(a):
     d={}
     for i in a:
@@ -14,6 +14,14 @@ def d(a):
             d[i]=1
     return d
 
+from math import comb
 for _ in range(rn()):
-    n=rn()
-    YN(n//2020>=n%2020)
+    n,k=rns()
+    a=rl()
+    a.sort()
+    num=a[n-k]
+    count=1
+    while n-k+count<n and a[n-k+count]==num:
+        count+=1
+    ans=comb(a.count(num),count)
+    print(mod(ans))
