@@ -14,41 +14,22 @@ def d(a):
 
 for _ in range(rn()):
     n=rn()
-    l=[]
+    a=[]
+    b=[]
     for i in range(n):
-        l.append(rl())
-    l.sort()
-    hor=[0]
-    ver=[0]
-    i=0
-    for j in range(n):
-        if i!=j:
-            hor.append(l[j][0]-l[i][0])
-            ver.append(l[j][1] - l[i][1])
-    ans=1
-    x=sum([abs(i) for i in hor])
-    while True:
-        for i in range(n):
-            hor[i]-=1
-        y=sum([abs(i) for i in hor])
-        if y<x:
-            ans=1
-            x=y
-        elif x==y:
-            ans+=1
-        else:
-            break
-    tans=ans
-    y = sum([abs(i) for i in ver])
-    while True:
-        for i in range(n):
-            ver[i] -= 1
-        x = sum([abs(i) for i in ver])
-        if x < y:
-            ans = tans
-            y = x
-        elif x == y:
-            ans += tans
-        else:
-            break
-    print(ans)
+        j,k=rns()
+        a.append(j)
+        b.append(k)
+    a.sort()
+    b.sort()
+    x=0
+    if n%2==1:
+        x=1
+    else:
+        x=a[n//2]-a[n//2-1]+1
+    y=0
+    if n % 2 == 1:
+        y = 1
+    else:
+        y = b[n // 2] - b[n // 2 - 1] + 1
+    print(x*y)
