@@ -3,7 +3,7 @@ rns=lambda:map(int,input().split())
 rl=lambda:list(map(int,input().split()))
 rs=lambda:input()
 YN=lambda x:print('YES') if x else print('NO')
-mod=lambda x:x%(10**9+7)
+mod=10**9+7
 def d(a):
     d={}
     for i in a:
