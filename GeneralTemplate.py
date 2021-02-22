@@ -5,3 +5,4 @@ rs=lambda:input()
 yn=lambda x:print('Yes') if x else print('No')
 YN=lambda x:print('YES') if x else print('NO')
 mod=10**9+7
+
