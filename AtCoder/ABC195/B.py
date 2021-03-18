@@ -3,13 +3,17 @@ rns=lambda:map(int,input().split())
 rl=lambda:list(map(int,input().split()))
 rs=lambda:input()
 yn=lambda x:print('Yes') if x else print('No')
-YN=lambda x:print('YES') if x else print('NO')
 pl=lambda l:print(' '.join(list(map(str,l))))
+from math import ceil
+a,b,w=rns()
+w*=1000
+if w>=a:
+    mi=ceil(w/b)
+    ma=ceil(w//a)
+    if mi<=ma:
+        print(mi,ma)
+    else:
+        print('UNSATISFIABLE')
 
-for _ in range(rn()):
-    n,m=rns()
-    ans=0
-    a=[]
-    for i in range(n):
-        a.append(input())
-        ans+=a[-1].count('*')
+else:
+    print('UNSATISFIABLE')
