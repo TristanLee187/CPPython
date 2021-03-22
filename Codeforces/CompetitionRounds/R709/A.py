@@ -6,3 +6,5 @@ YN=lambda x:print('YES') if x else print('NO')
 mod=10**9+7
 
 for _ in range(rn()):
+    a,b=rns()
+    print(a*b)
