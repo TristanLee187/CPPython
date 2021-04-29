@@ -8,3 +8,5 @@ YN=lambda x:print('YES') if x else print('NO')
 mod=10**9+7
 
 for _ in range(rn()):
+    r,b,d=rns()
+    YN(min(r,b)*(d+1)>=max(r,b))
