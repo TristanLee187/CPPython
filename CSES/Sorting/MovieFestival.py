@@ -1,3 +1,5 @@
+from sys import stdin
+input = stdin.readline
 rn=lambda:int(input())
 rns=lambda:map(int,input().split())
 rl=lambda:list(map(int,input().split()))
