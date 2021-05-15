@@ -8,3 +8,7 @@ rs = lambda: input()
 yn = lambda x: print('Yes') if x else print('No')
 pl = lambda l: print(' '.join(list(map(str, l))))
 
+h,w=rns()
+grid=[]
+for i in range(h):
+    grid.append(rs())

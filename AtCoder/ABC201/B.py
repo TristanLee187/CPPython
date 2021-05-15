@@ -8,3 +8,11 @@ rs = lambda: input()
 yn = lambda x: print('Yes') if x else print('No')
 pl = lambda l: print(' '.join(list(map(str, l))))
 
+n=rn()
+m=[]
+for i in range(n):
+    tag=input().split()[::-1]
+    tag[0]=int(tag[0])
+    m.append(tag)
+m.sort()
+print(m[-2][1])
