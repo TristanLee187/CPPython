@@ -1,4 +1,4 @@
-#Usage: [Platform name] [Directory Name] [Problem Name]; problem name is a letter from A to F
+#Usage: [Platform name] [Year] [Directory Name] [Problem Name]; problem name is a letter from A to F
 #
 #Creates a new directory with the given name, with files A, B, C... problem name,
 # in the specified platform directory
