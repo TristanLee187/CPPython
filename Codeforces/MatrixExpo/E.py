@@ -1,36 +1,31 @@
 mod = 2 ** 32
-n = int(input())
-start = [[0]*65 for i in range(65)]
-start[0][0]=1
-mult = [[0]*65 for i in range(65)]
-
+n = int(input()) + 1
+start = [[0] * 65 for _ in range(65)]
+start[0][0] = 1
+mult = [[0] * 65 for _ in range(65)]
 for row in range(8):
     for col in range(8):
-        for dr in [-2,-1,1,2]:
-            for dc in [-2,-1,1,2]:
-                if abs(dr)!=abs(dc):
-                    nrow=row+dr
-                    ncol=col+dc
-                    if 0<=nrow<=7 and 0<=ncol<=7:
-                        mult[8*row+col][8*nrow+ncol] = 1
-
-for row in range(64):
-    mult[-1][row]=1
+        for dr in [-2, -1, 1, 2]:
+            for dc in [-2, -1, 1, 2]:
+                if abs(dr) != abs(dc):
+                    nrow = row + dr
+                    ncol = col + dc
+                    if 0 <= nrow <= 7 and 0 <= ncol <= 7:
+                        mult[8 * row + col][8 * nrow + ncol] = 1
+for row in range(65):
+    mult[-1][row] = 1
 
 
 def matrix_mult(a, b):
-    n = len(b)
-    m = len(a[0])
-    ans = [[0] * m for j in range(n)]
+    ans = [[0] * 65 for j in range(65)]
     i = 0
-    while i < n:
+    while i < 65:
         j = 0
-        while j < m:
+        while j < 65:
             k = 0
-            while k < n:
-                ans[i][j] += a[k][j] * b[i][k]
-                if ans[i][j] > mod:
-                    ans[i][j] -= mod
+            while k < 65:
+                ans[i][j] += (a[k][j] * b[i][k]) % mod
+                ans[i][j] %= mod
                 k += 1
             j += 1
         i += 1
@@ -51,10 +46,10 @@ def mat_pow(mat, power):
     """returns mat**power"""
 
     result = eye(len(mat))
-    if power == 0:
+    if not power:
         return result
 
-    while power > 1:
+    while power - 1:
         if power & 1:
             result = matrix_mult(result, mat)
         mat = matrix_mult(mat, mat)
@@ -62,11 +57,4 @@ def mat_pow(mat, power):
     return matrix_mult(result, mat)
 
 
-ans=1
-for i in range(n):
-    start=matrix_mult(start,mult)
-    for row in start:
-        ans+=sum(row[:-1])
-        ans%=mod
-print(ans)
-print(sum([start[row][0] for row in range(65)]))
+print(matrix_mult(start, mat_pow(mult, n))[-1][0])
