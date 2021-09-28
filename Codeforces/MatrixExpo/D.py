@@ -17,8 +17,7 @@ def matrix_mult(a, b):
             k = 0
             while k<n:
                 ans[i][j] += a[k][j] * b[i][k]
-                if ans[i][j]>mod:
-                    ans[i][j]-=mod
+                ans[i][j]%=mod
                 k+=1
             j+=1
         i+=1
