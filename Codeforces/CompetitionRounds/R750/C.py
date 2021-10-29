@@ -13,7 +13,23 @@ for _ in range(rn()):
     s=rs()
     ans=float('inf')
     for char in set(s):
-
+        l,r=0,n-1
+        pans=0
+        while l<r:
+            # print(char, pans)
+            if s[l]==s[r]:
+                l+=1
+                r-=1
+            elif s[l]==char:
+                l+=1
+                pans+=1
+            elif s[r]==char:
+                r-=1
+                pans+=1
+            else:
+                pans=float('inf')
+                break
+        ans=min(ans,pans)
     if ans==float('inf'):
         print(-1)
     else:
