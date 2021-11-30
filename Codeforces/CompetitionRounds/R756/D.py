@@ -20,4 +20,16 @@ for _ in range(rn()):
             tree[b[i]].append(i+1)
         else:
             root=b[i]
-
+    if p[0]!=root:
+        print(-1)
+    else:
+        paths=defaultdict(int)
+        paths[root]=0
+        ans=[0 for i in range(n)]
+        for i in range(1,n):
+            if b[p[i]-1] not in paths:
+                ans=[-1]
+                break
+            ans[p[i]-1] = i-paths[b[p[i]-1]]
+            paths[p[i]] = i
+        print(*ans)

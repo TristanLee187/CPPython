@@ -9,3 +9,10 @@ ceil_div=lambda a,b:-(-a//b)
 mod=10**9+7
 
 for _ in range(rn()):
+    n,m=rns()
+    segs=[rl() for __ in range(m)]
+    o=0
+    for i in segs:
+        o|=i[-1]
+    ans = o*pow(2,n-1,mod)
+    print(ans%mod)
