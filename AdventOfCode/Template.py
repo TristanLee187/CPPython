@@ -2,18 +2,13 @@ prob="input"
 
 file=open(prob+".txt")
 
-rn=lambda:int(line)
-rns=lambda:map(int,line.split())
-rl=lambda:list(map(int,line.split()))
-rs=lambda:line.strip()
+rn=lambda:int(file.readline())
+rns=lambda:map(int,file.readline().split())
+rl=lambda:list(map(int,file.readline().split()))
+rs=lambda:file.readline().strip()
 
 ans=0
-lines = file.readlines()
-n=len(lines)
+# Read input, account for sample vs. actual input
+
 file.close()
-
-for line in lines:
-    # io
-    pass
-
 print(ans)
