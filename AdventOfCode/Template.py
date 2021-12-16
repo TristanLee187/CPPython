@@ -1,6 +1,4 @@
-prob="input"
-
-file=open(prob+".txt")
+file=open("input.txt")
 
 rn=lambda:int(file.readline())
 rns=lambda:map(int,file.readline().split())
@@ -8,7 +6,7 @@ rl=lambda:list(map(int,file.readline().split()))
 rs=lambda:file.readline().strip()
 
 ans=0
-# Read input, account for sample vs. actual input
+
 
 file.close()
 print(ans)
