@@ -63,23 +63,8 @@ ceil_div=lambda a,b:-(-a//b)
 mod=10**9+7
 
 for _ in range(rn()):
-    n=rn()
-    left,right = 1, n
-    ans=0
-    while not ans:
-        mid = (left+right)//2
-        print('?', left, mid)
-        sys.stdout.flush()
-        a=rl()
-        c=0
-        for num in a:
-            if left<=num<=mid:
-                c+=1
-        if c%2==0:
-            left=mid+1
-        else:
-            right=mid
-        if left>=right:
-            ans=left
-    print('!', ans)
-    sys.stdout.flush()
+    n,m=rns()
+    ans=n+m-2
+    if not (n==m==1):
+        ans += min(n,m)
+    print(ans)

@@ -63,23 +63,14 @@ ceil_div=lambda a,b:-(-a//b)
 mod=10**9+7
 
 for _ in range(rn()):
-    n=rn()
-    left,right = 1, n
-    ans=0
-    while not ans:
-        mid = (left+right)//2
-        print('?', left, mid)
-        sys.stdout.flush()
-        a=rl()
-        c=0
-        for num in a:
-            if left<=num<=mid:
-                c+=1
-        if c%2==0:
-            left=mid+1
-        else:
-            right=mid
-        if left>=right:
-            ans=left
-    print('!', ans)
-    sys.stdout.flush()
+    s=rs()
+    n=len(s)
+    curr=set()
+    ans=1
+    for i in range(n):
+        if s[i] not in curr:
+            if len(curr)==3:
+                ans+=1
+                curr.clear()
+            curr.add(s[i])
+    print(ans)
