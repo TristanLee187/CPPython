@@ -1,6 +1,7 @@
 import sys
 from io import BytesIO, IOBase
 import os
+from bisect import bisect_left
 
 # region fastio
 BUFSIZE = 8192
@@ -63,3 +64,20 @@ ceil_div=lambda a,b:-(-a//b)
 mod=10**9+7
 
 for _ in range(rn()):
+    n=rn()
+    a=rl()
+    b=rl()
+    mins=[]
+    maxes=[]
+    buckets=[0 for i in range(n)]
+    d=dict()
+    for i in range(n):
+        j = bisect_left(b, a[i])
+        d[a[i]] = j
+        buckets[j]+=1
+    for i in range(n):
+        j = d[a[i]]
+        mins.append(b[j] - a[i])
+        maxes.append(b[j + buckets[j] - 1] - a[i])
+    print(*mins)
+    print(*maxes)

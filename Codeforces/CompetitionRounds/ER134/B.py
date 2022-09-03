@@ -63,3 +63,12 @@ ceil_div=lambda a,b:-(-a//b)
 mod=10**9+7
 
 for _ in range(rn()):
+    n,m,x,y,d=rns()
+    left, right = y-d, y+d
+    up, down = x-d, x+d
+    l,r,u,d = left<=1, up<=1, right>=m, down>=n
+    c = (l and r) or (u and d) or (l and u) or (d and r)
+    if c:
+        print(-1)
+    else:
+        print(n+m-2)
