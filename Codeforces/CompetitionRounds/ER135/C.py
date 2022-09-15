@@ -1,6 +1,7 @@
 import sys
 from io import BytesIO, IOBase
 import os
+from collections import Counter
 
 # region fastio
 BUFSIZE = 8192
@@ -63,3 +64,39 @@ ceil_div=lambda a,b:-(-a//b)
 mod=10**9+7
 
 for _ in range(rn()):
+    n=rn()
+    a=rl()
+    b=rl()
+    ca=Counter(a)
+    cb=Counter(b)
+    ans=0
+    step=2
+    while n:
+        for num in ca:
+            if num in cb:
+                m=min(ca[num], cb[num])
+                ca[num]-=m
+                cb[num]-=m
+                n-=m
+        newca=ca.copy()
+        for num in ca:
+            d=len(str(num))
+            if d>=step and num!=1 and ca[num]:
+                if d not in newca:
+                    newca[d]=0
+                ans+=ca[num]
+                newca[d]+=ca[num]
+                newca[num]=0
+        newcb=cb.copy()
+        for num in cb:
+            d=len(str(num))
+            if d>=step and num!=1 and cb[num]:
+                if d not in newcb:
+                    newcb[d]=0
+                ans+=cb[num]
+                newcb[d]+=cb[num]
+                newcb[num]=0
+        step-=1
+        ca=newca
+        cb=newcb
+    print(ans)
