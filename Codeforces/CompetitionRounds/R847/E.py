@@ -63,5 +63,15 @@ ceil_div=lambda a,b:-(-a//b)
 mod=10**9+7
 
 for _ in range(rn()):
-    n=rn()
-    p=rl()
+    x=rn()
+    def solve():
+        if x%2==1:
+            return False
+        if (x//2)&x>0:
+            return False
+        return x//2, 3*x//2
+    ans=solve()
+    if ans:
+        print(*ans)
+    else:
+        print(-1)

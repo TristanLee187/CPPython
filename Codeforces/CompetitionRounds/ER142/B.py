@@ -63,4 +63,22 @@ ceil_div=lambda a,b:-(-a//b)
 mod=10**9+7
 
 for _ in range(rn()):
-    a,b,c,d=rns()
+    def solve():
+        a, b, c, d = rns()
+        if a==0:
+            return min(1, b+c+d)
+        ans=a+2*min(b,c)
+        b,c=b-min(b,c), c-min(b,c)
+        alice,bob = a,a
+        if b==0:
+            diff=min(alice+1, c)
+            alice-=diff
+            ans+=diff
+        else:
+            diff=min(bob+1, b)
+            bob-=diff
+            ans+=diff
+        if alice>=0 and bob>=0:
+            ans+=min(min(alice, bob)+1, d)
+        return ans
+    print(solve())

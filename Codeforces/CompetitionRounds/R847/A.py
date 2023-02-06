@@ -62,6 +62,13 @@ YN=lambda x:print('YES') if x else print('NO')
 ceil_div=lambda a,b:-(-a//b)
 mod=10**9+7
 
+pi='3141592653589793238462643383279'
 for _ in range(rn()):
-    n=rn()
-    p=rl()
+    s=rs()
+    ans=0
+    for i in range(len(s)):
+        if s[i]==pi[i]:
+            ans+=1
+        else:
+            break
+    print(ans)

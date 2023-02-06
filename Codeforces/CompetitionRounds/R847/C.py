@@ -1,6 +1,7 @@
 import sys
 from io import BytesIO, IOBase
 import os
+from collections import deque, Counter
 
 # region fastio
 BUFSIZE = 8192
@@ -64,4 +65,17 @@ mod=10**9+7
 
 for _ in range(rn()):
     n=rn()
-    p=rl()
+    grid=[]
+    for i in range(n):
+        grid.append(deque(rl()))
+    ans=[]
+    for i in range(n):
+        c=Counter([grid[i][0] if len(grid[i])>0 else -1 for i in range(n)])
+        for num in c:
+            if c[num]==n-1:
+                ans.append(num)
+                for i in range(n):
+                    if grid[i] and grid[i][0]==num:
+                        grid[i].popleft()
+                break
+    print(*ans)

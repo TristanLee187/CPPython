@@ -64,4 +64,22 @@ mod=10**9+7
 
 for _ in range(rn()):
     n=rn()
-    p=rl()
+    a=rl()
+    if n==3:
+        ans=sum(a)%2==1
+        YN(ans)
+        if ans:
+            print(1,2,3)
+    else:
+        a=[i%2 for i in a]
+        ans=1 in a
+        YN(ans)
+        if ans:
+            if a.count(1)>=3:
+                ans=[i for i in range(n) if a[i]==1]
+                print(*[i+1 for i in ans[:3]])
+            else:
+                pans=[a.index(1)]
+                ans=[i for i in range(n) if a[i]==0]
+                pans+=ans[:2]
+                print(*[i+1 for i in pans])

@@ -63,5 +63,10 @@ ceil_div=lambda a,b:-(-a//b)
 mod=10**9+7
 
 for _ in range(rn()):
-    n=rn()
-    p=rl()
+    n,s,r=rns()
+    miss=s-r
+    ans=(n-1)*[r//(n-1)]
+    for i in range(r%(n-1)):
+        ans[i]+=1
+    ans.append(miss)
+    print(*ans)

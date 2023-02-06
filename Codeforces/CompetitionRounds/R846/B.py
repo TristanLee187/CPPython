@@ -1,6 +1,7 @@
 import sys
 from io import BytesIO, IOBase
 import os
+from math import gcd
 
 # region fastio
 BUFSIZE = 8192
@@ -64,4 +65,13 @@ mod=10**9+7
 
 for _ in range(rn()):
     n=rn()
-    p=rl()
+    a=rl()
+    left=a[0]
+    right=sum(a)-left
+    ans = gcd(left, right)
+    for i in range(1,n-1):
+        left+=a[i]
+        right-=a[i]
+        ans=max(ans, gcd(left, right))
+    print(ans)
+
