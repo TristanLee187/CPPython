@@ -1,9 +1,9 @@
-#Usage: [Directory Name] [Problem Name]; problem name is a letter from A to F
+#Usage: [Directory Name] [Problem Name]; problem name is a letter from A to H
 #
 #Creates a new directory with the given name, with files A, B, C... problem name
 #Each has the contents of 'CodeforcesTemplate.py'
 
-arr=('A' 'B' 'C' 'D' 'E' 'F')
+arr=('A' 'B' 'C' 'D' 'E' 'F' 'G' 'H')
 read -r input
 IFS=' '
 read -ra arrIN<<<"$input"
